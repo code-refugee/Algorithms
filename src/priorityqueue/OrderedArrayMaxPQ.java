@@ -13,6 +13,13 @@ public class OrderedArrayMaxPQ<key extends Comparable<key>> {
 		pq[N]=v;
 		insertionPQ(pq,0,N);
 		N++;
+//		int i = N-1;
+//        while (i >= 0 && less(v, pq[i])) {
+//            pq[i+1] = pq[i];
+//            i--;
+//        }
+//        pq[i+1] = v;
+//        N++;
 	}
 	public key delMax(){
 		return pq[--N];
@@ -20,8 +27,8 @@ public class OrderedArrayMaxPQ<key extends Comparable<key>> {
 	private  void insertionPQ(key[] pq,int lo,int hi){
 		int exchange=0;
 		for(int i=hi;i>lo;i--){
-			if(less(pq[hi],pq[hi-1])){
-				exch(pq,hi,hi-1);
+			if(less(pq[i],pq[i-1])){
+				exch(pq,i,i-1);
 				exchange++;
 			}
 		}
