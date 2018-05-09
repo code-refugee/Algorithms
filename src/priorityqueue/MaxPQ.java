@@ -134,12 +134,11 @@ public class MaxPQ<Key> implements Iterable<Key>{
 		}
 	}
 	public static void main(String[] args) {
-		MaxPQ<Card> pq=new MaxPQ<>();
 		Card[] cd=new Card[10];
 		for(int i=0;i<10;i++){
 			cd[i]=new Card();
-			pq.insert(cd[i]);
 		}
+		MaxPQ<Card> pq=new MaxPQ<>(cd);
 		for(Card m:pq){
 			System.out.println(m);
 		}
