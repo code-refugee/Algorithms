@@ -20,9 +20,9 @@ public class LinkPQ<Key> implements Iterable<Key>{
 	
 	private class Node{
 		Key key;//节点内容
-		Node parent;//上链接
-		Node lchild;//左链接
-		Node rchild;//右链接
+		Node parent;//父亲节点
+		Node lchild;//左孩子
+		Node rchild;//右孩子
 	}
 	
 	public LinkPQ() {

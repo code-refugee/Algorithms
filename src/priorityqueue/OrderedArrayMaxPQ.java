@@ -1,6 +1,6 @@
 package priorityqueue;
 /*使用无序数组和有序数组实现优先队列
- * 支持插入元素和删除最大元素的操作*/
+ * 支持插入元素和删除最大元素的操作(这里使用的是有序数组)*/
 import edu.princeton.cs.algs4.*;
 public class OrderedArrayMaxPQ<key extends Comparable<key>> {
 	private key[] pq;
