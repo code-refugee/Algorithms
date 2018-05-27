@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import recover.Card;
+import basicsrecover.Card;
 
 /**
  * 使用链表实现优先队列

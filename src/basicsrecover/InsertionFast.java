@@ -1,4 +1,4 @@
-package recover;
+package basicsrecover;
 
 public class InsertionFast {
 	public static void sort(Comparable[] a){

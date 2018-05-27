@@ -3,7 +3,8 @@ package quicklysort;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdRandom;
 
-/*算法2.3.17 哨兵：去掉内循环while中的边界检查*/
+/*算法2.3.17 哨兵：去掉内循环while中的边界检查
+ * 没有边界检查，算法速度能提升*/
 public class QuickBest {
 	public static void sort(Comparable[] a) {
 		StdRandom.shuffle(a);

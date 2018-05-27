@@ -1,5 +1,5 @@
 package quicklysort;
-/*快速三向切分*/
+/*快速排序改进版，若想看有注释的，请到sortrecover包中看QuickSort*/
 import edu.princeton.cs.algs4.*;
 public class QuickX {
 	private static final int INSERTION_SORT_CUTOFF=8;

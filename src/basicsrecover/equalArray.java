@@ -1,4 +1,4 @@
-package recover;
+package basicsrecover;
 import java.util.*;
 public class equalArray
 {

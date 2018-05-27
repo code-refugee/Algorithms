@@ -3,7 +3,8 @@ package priorityqueue;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import recover.*;
+
+import basicsrecover.*;
 /*在线性时间内检测数组pq[]是否是一个面向最小元素的堆*/
 public class MaxPQ<Key> implements Iterable<Key>{
 	private Key[] pq;

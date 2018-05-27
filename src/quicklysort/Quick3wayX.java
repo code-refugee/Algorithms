@@ -1,10 +1,12 @@
 package quicklysort;
-/*快速三向切分*/
+/*快速三向切分,适用于重复元素较多的数组排序*/
 import edu.princeton.cs.algs4.*;
 public class Quick3wayX {
 	public static void sort(Comparable[] a){
+		//随机打乱，排除对输入的依赖
 		StdRandom.shuffle(a);
 		sort(a,0,a.length-1);
+		//检测是否有序
 		assert isSorted(a);
 	}
 	
@@ -17,6 +19,7 @@ public class Quick3wayX {
 		int p=lo,q=hi+1;
 		while(true){
 			while(less(a[++i],v)){
+				//到达右边界跳出循环
 				if(i==hi){
 					break;
 				}
@@ -28,18 +31,19 @@ public class Quick3wayX {
 			}
 			if(i>=j)
 				break;
-			exch(a,i,j);//先交换再比较是否有相等
+			exch(a,i,j);//注意一定要先交换再比较是否有相等
 			if(eq(a[i],v)) exch(a,++p,i);
 			if(eq(a[j],v)) exch(a,--q,j);
 		}
 		exch(a,lo,j);
 		i=j+1;
 		j=j-1;
+		//因为lo与j已经交换过了，此处画幅图就可以明白
 		for(int k=lo+1;k<=p;k++) exch(a,k,j--);
 		for(int k=hi;k>=q;k--) exch(a,k,i++);
 		sort(a,lo,j);
 		sort(a,i,hi);
-//     方法二
+//     方法二 此方法在重复元素不多的情况下比标准的二分法多使用了很多次交换
 //		while(i<=gt){
 //			int cmp=a[i].compareTo(v);
 //			if(cmp<0) exch(a,lt++,i++);

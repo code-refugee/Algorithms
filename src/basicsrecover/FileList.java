@@ -1,4 +1,4 @@
-package recover;
+package basicsrecover;
 import java.io.File;
 
 /*文件列表。文件夹就是一列文件和文件夹的列表。编写一个程序，从命令行接受一个文件夹名作为参数，

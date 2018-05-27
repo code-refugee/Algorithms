@@ -1,4 +1,4 @@
-package recover;
+package basicsrecover;
 import edu.princeton.cs.algs4.*;
 public class Card implements Comparable<Card>{
 	private String kind;
