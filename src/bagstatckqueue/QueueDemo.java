@@ -1,5 +1,6 @@
 package bagstatckqueue;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -8,6 +9,8 @@ import java.util.NoSuchElementException;
 public class QueueDemo<Item> implements Iterable<Item>{
 	private Node last;
 	private int N;
+	private int ennum=0;//记录进队列操作次数
+	private int denum=0;//记录出队列操作数
 	private class Node{
 		Item item;
 		Node next;
@@ -37,6 +40,7 @@ public class QueueDemo<Item> implements Iterable<Item>{
         }
         last = x;
         N++;
+        ennum++;
 	}
 	//出队列
 	public Item dequeue(){
@@ -48,6 +52,7 @@ public class QueueDemo<Item> implements Iterable<Item>{
 		else
 			last.next=last.next.next;
 		N--;
+		denum++;
 		return item;
 	}
 
@@ -58,11 +63,19 @@ public class QueueDemo<Item> implements Iterable<Item>{
 	private class ListIterator implements Iterator<Item>{
 		private Node temp=last;
 		private int n=N;
+		private int en=ennum;
+		private int de=denum;
 		public boolean hasNext() {
+			
+			//快速失败机制（一旦用例在迭代器中修改集合数据就抛出异常）
+			if(en!=ennum||de!=denum)
+				throw new ConcurrentModificationException();
 			return n>0;
 		}
 
 		public Item next() {
+			if(en!=ennum||de!=denum)
+				throw new ConcurrentModificationException();
 			if (!hasNext()) throw new NoSuchElementException();
 			Item item=temp.next.item;
 			temp=temp.next;
@@ -82,6 +95,7 @@ public class QueueDemo<Item> implements Iterable<Item>{
 		q.enqueue("泷");
 		System.out.println(q.peek()+q.size());
 		for(String s:q){
+			
 			System.out.println(s);
 		}
 		System.out.println(q.dequeue());
