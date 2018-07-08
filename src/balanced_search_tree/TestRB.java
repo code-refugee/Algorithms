@@ -1,10 +1,10 @@
-package brinary_search_tree;
+package balanced_search_tree;
 
-public class TestBST {
+public class TestRB {
 	public static void main(String[] args) {
 		String test="S E A R C H E X A M P L E";
 		String[] keys=test.split("\\s+");
-		BST<String,Integer> st=new BST<>();
+		RedBlackBST<String,Integer> st=new RedBlackBST<>();
 		System.out.println("Now test is "+st.getClass().getName()+":");
 		System.out.println();
 		for(int i=0;i<keys.length;i++)

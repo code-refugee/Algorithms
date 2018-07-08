@@ -10,15 +10,15 @@ public class PerfectBalance {
 	
 	/*解题思路:二分查找是利用一组有序的数组然后对其进行折半查找
 	 * 那么，我们只要用一组有序的数组来构造一颗二叉树即可*/
-	public static<T> void perfect(BST bs,T[] keys){
+	public static void perfect(BST bs,Comparable[] keys){
 		Arrays.sort(keys);
 		perfect(bs,keys,0,keys.length-1);
 	}
-	private static<T> void perfect(BST bs,T[] keys,int lo,int hi){
+	private static<T> void perfect(BST bs,Comparable[] keys,int lo,int hi){
 		if(hi<lo)
 			return;
 		int mid=lo+(hi-lo)/2;
-		bs.put((Comparable)keys[mid], mid);
+		bs.put(keys[mid], mid);
 		perfect(bs,keys,lo,mid-1);
 		perfect(bs,keys,mid+1,hi);
 	}
